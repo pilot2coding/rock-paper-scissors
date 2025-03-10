@@ -50,7 +50,10 @@ let round = 0;
 function playRound(){
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
-    let scoreNotice = document.getElementById('message');
+    let roundNotice = document.getElementById('message');
+    let scoreNotice = document.getElementById('score');
+    let gameCondition = document.getElementById('gameCondition');
+    let whoWhon = document.getElementById('who-won');
     console.log(computerChoice);
     console.log(humanChoice);
 
@@ -68,27 +71,65 @@ function playRound(){
     if((humanChoice=='rock' && computerChoice=='scissors') || (humanChoice=='scissors' && computerChoice=='paper') || (humanChoice == 'paper' && computerChoice == 'scissors')){
             round++;
             humanScore++;
-            scoreNotice.innerText = `Round ${round}: YOU WIN! Score: ${humanScore} - ${computerScore}`;
+            roundNotice.innerText = `Round ${round}`;
+            whoWhon.innerText = "YOU WIN!"
+            scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
         } else if (humanChoice==computerChoice){
-            scoreNotice.innerText = `Round ${round}: TIE! Score: ${humanScore} - ${computerScore}`;
+            if(round>0){
+                roundNotice.innerText = `Round ${round}`;
+                whoWhon.innerText = "IT'S A TIE!";
+                scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+            } else {
+                roundNotice.innerText = "Continue Playing...";
+                whoWhon.innerText = "IT'S A TIE!";
+                scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+            }
+            
         } else {
             round ++;
             computerScore ++;
-            scoreNotice.innerText = `Round ${round}: COMPUTER WINS! Score: ${humanScore} - ${computerScore}`;
+            roundNotice.innerText = `Round ${round}`;
+            whoWhon.innerText = "COMPUTER WINS!"
+            scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
         }
         
-        if(round == 5){
+        if(round === 5){
             if(humanScore > computerScore){
-                scoreNotice.innerText = `GAME OVER, YOU WIN! Score: ${humanScore} - ${computerScore}`
+                gameCondition.innerText = "GAME OVER"
+                roundNotice.innerText = `YOU WIN!`
+                scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`
+                whoWhon.innerText = "";
             } else {
-                scoreNotice.innerText = `GAME OVER, YOU LOSE! Score: ${humanScore} - ${computerScore}`
+                gameCondition.innerText = "GAME OVER"
+                roundNotice.innerText = `YOU LOSE!`
+                scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`
+                whoWhon.innerText = "";
             };
-            
-            round = 0;
-            humanScore = 0;
-            computerScore = 0;
+            document.getElementById('option').addEventListener("keydown", resetClick);
             
         }
+
+        
    
     
 };
+
+function resetClick(event){
+    if(event.key === "Enter"){
+        resetGame();
+        document.getElementById('option').removeEventListener('keydown', resetClick);
+    }
+};
+
+function resetGame(){
+    round = 0;
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("gameCondition").innerText = "";
+    document.getElementById("message").innerText = "Welcome. Let's Play.";
+    document.getElementById("score").innerText = "";
+    document.getElementById("option").value = "";
+    document.getElementById("who-won").innerText = ""; 
+    
+
+}

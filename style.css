@@ -41,5 +41,11 @@ h1 {
 
     h1{
         font-size: 35px;
+        
+    }
+
+    #emojis{
+        font-size: 60px;
+        
     }
 }
