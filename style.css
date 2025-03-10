@@ -48,4 +48,29 @@ h1 {
         font-size: 60px;
         
     }
+    
 }
+
+@media only screen 
+    and (width: 393px) 
+    and (height: 852px) 
+    and (-webkit-device-pixel-ratio: 3) { 
+        #playscreen{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: auto;
+            text-align: center;
+        }
+    
+        h1{
+            font-size: 35px;
+            
+        }
+    
+        #emojis{
+            font-size: 60px;
+            
+        }
+
+    }
