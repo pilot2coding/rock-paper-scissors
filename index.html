@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <p id="message">Welcome, let's play</p>
-    <button id="rockButton" onclick="getHumanChoice()">🪨</button>
-    <button id="paperButton" onclick="getHumanChoice()">🧻</button>
-    <button id="scissorButton" onclick="getHumanChoice()">✂️</button>
+    <div id="playscreen">
+        <h1 id="message">Welcome. Let's Play</h1>
+        <h1 id="emojis">🪨 🧻 ✂️</h1>
+        <input id="option" type="text" placeholder="🪨, 🧻 or ✂️">
+    </div>
     
+    <script src="scripts.js"></script>    
 </html>
