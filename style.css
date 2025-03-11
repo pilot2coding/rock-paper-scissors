@@ -1,10 +1,10 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: rgb(244,   68, 46);
+    background-color:  rgb(242, 243, 174);
 }
 
 h1 {
-    color: rgb(242, 243, 174);
+    color: rgb(244, 68, 46);
     font-size: 48px;
 }
 
@@ -34,9 +34,9 @@ h1 {
 
 #rock, #paper, #scissors{
     font-size: 85px;
-    border: 2px solid rgb(2, 1, 34);
+    border: 4px solid rgb(2, 1, 34);
     border-radius: 10px;
-    background-color: rgb(252, 158, 79);
+    background-color:rgb(252, 158, 79);
     width: 120px;
     height: 120px;
     display: flex;
@@ -76,7 +76,7 @@ h1 {
 
 @media screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
     h1 {
-        font-size: 30px;
+        font-size: 45px;
     }
 
     #rock, #paper, #scissors{
