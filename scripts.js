@@ -74,8 +74,8 @@ function playRound(humanChoice){
             scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
             robotText.innerText = emojiDictionary[computerChoice];
             humanText.innerText = emojiDictionary[humanChoice];
-            robotEmoji = "🤖";
-            humanEmoji = "🧍🏽‍♂️";
+            robotEmoji.innerText = "🤖";
+            humanEmoji.innerText = "🧍🏽‍♂️";
         } else if (humanChoice==computerChoice){
             if(round>0){
                 roundNotice.innerText = `Round ${round}`;
@@ -83,8 +83,8 @@ function playRound(humanChoice){
                 scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
                 robotText.innerText = emojiDictionary[computerChoice];
                 humanText.innerText = emojiDictionary[humanChoice];
-                robotEmoji = "🤖";
-                humanEmoji = "🧍🏽‍♂️";
+                robotEmoji.innerText = "🤖";
+                humanEmoji.innerText = "🧍🏽‍♂️";
             
             } else {
                 roundNotice.innerText = "Continue Playing...";
@@ -92,8 +92,8 @@ function playRound(humanChoice){
                 scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
                 robotText.innerText = emojiDictionary[computerChoice];
                 humanText.innerText = emojiDictionary[humanChoice];
-                robotEmoji = "🤖";
-                humanEmoji = "🧍🏽‍♂️";
+                robotEmoji.innerText = "🤖";
+                humanEmoji.innerText = "🧍🏽‍♂️";
             
             }
             
@@ -105,8 +105,8 @@ function playRound(humanChoice){
             scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
             robotText.innerText = emojiDictionary[computerChoice];
             humanText.innerText = emojiDictionary[humanChoice];
-            robotEmoji = "🤖";
-            humanEmoji = "🧍🏽‍♂️";
+            robotEmoji.innerText = "🤖";
+            humanEmoji.innerText = "🧍🏽‍♂️";
         }
         
         if(round === 5){
