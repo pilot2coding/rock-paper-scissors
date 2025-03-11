@@ -76,7 +76,7 @@ h1 {
 
 @media screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
     h1 {
-        font-size: 45px;
+        font-size: 30px;
     }
 
     #rock, #paper, #scissors{
@@ -92,6 +92,10 @@ h1 {
 
     .choices{
         margin: 10px 0;
+    }
+
+    .choices h1{
+        font-size: 45px;
     }
 
 }
