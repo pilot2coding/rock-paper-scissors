@@ -47,13 +47,15 @@ h1 {
     
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
     h1 {
         font-size: 30px;
     }
 
     #rock, #paper, #scissors{
-        font-size: 30px;
+        font-size: 60px;
+        width: auto;
+        height: auto;
     }
 }
 

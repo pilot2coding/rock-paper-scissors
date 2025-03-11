@@ -17,7 +17,7 @@ function getComputerChoice(){
     }
 
     return computerChoice;
-    console.log(computerChoice);
+    
 
     
 }
@@ -55,6 +55,11 @@ function playRound(humanChoice){
     let scoreNotice = document.getElementById('score');
     let gameCondition = document.getElementById('gameCondition');
     let whoWhon = document.getElementById('who-won');
+    let robotText = document.getElementById("robot");
+    let humanText = document.getElementById("human");
+    let robotEmoji = document.getElementById("robot-text");
+    let humanEmoji = document.getElementById("human-text");
+    let emojiDictionary = {rock:"🪨", paper:"🧻", scissors:"✂️"};
     console.log(computerChoice);
     console.log(humanChoice);
 
@@ -67,15 +72,29 @@ function playRound(humanChoice){
             roundNotice.innerText = `Round ${round}`;
             whoWhon.innerText = "YOU WIN!"
             scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+            robotText.innerText = emojiDictionary[computerChoice];
+            humanText.innerText = emojiDictionary[humanChoice];
+            robotEmoji = "🤖";
+            humanEmoji = "🧍🏽‍♂️";
         } else if (humanChoice==computerChoice){
             if(round>0){
                 roundNotice.innerText = `Round ${round}`;
                 whoWhon.innerText = "IT'S A TIE!";
                 scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+                robotText.innerText = emojiDictionary[computerChoice];
+                humanText.innerText = emojiDictionary[humanChoice];
+                robotEmoji = "🤖";
+                humanEmoji = "🧍🏽‍♂️";
+            
             } else {
                 roundNotice.innerText = "Continue Playing...";
                 whoWhon.innerText = "IT'S A TIE!";
                 scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+                robotText.innerText = emojiDictionary[computerChoice];
+                humanText.innerText = emojiDictionary[humanChoice];
+                robotEmoji = "🤖";
+                humanEmoji = "🧍🏽‍♂️";
+            
             }
             
         } else {
@@ -84,6 +103,10 @@ function playRound(humanChoice){
             roundNotice.innerText = `Round ${round}`;
             whoWhon.innerText = "COMPUTER WINS!"
             scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`;
+            robotText.innerText = emojiDictionary[computerChoice];
+            humanText.innerText = emojiDictionary[humanChoice];
+            robotEmoji = "🤖";
+            humanEmoji = "🧍🏽‍♂️";
         }
         
         if(round === 5){
@@ -119,8 +142,11 @@ function resetGame(){
     document.getElementById("gameCondition").innerText = "";
     document.getElementById("message").innerText = "Welcome. Let's Play.";
     document.getElementById("score").innerText = "";
-    
-    document.getElementById("who-won").innerText = ""; 
+    document.getElementById("who-won").innerText = "";
+    document.getElementById("robot-text").innerText = "";
+    document.getElementById("human-text").innerText = "";
+    document.getElementById("robot").innerText = "";
+    document.getElementById("human").innerText = "";
     
     let options = document.querySelectorAll(".option");
     options.forEach(option => {
