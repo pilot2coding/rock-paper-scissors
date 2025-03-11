@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissors!</title>
     <link rel="stylesheet" href="style.css">
     
 </head>
@@ -11,8 +11,11 @@
     <div id="playscreen">
         <h1 id="gameCondition"></h1>
         <h1 id="message">Welcome. Let's Play.</h1>
-        <h1 id="emojis">🪨 🧻 ✂️</h1>
-        <input id="option" type="text" placeholder="🪨, 🧻 or ✂️">
+        <div id="options">
+            <button class="option" id="rock">🪨</button>
+            <button class="option" id="paper">🧻</button>
+            <button class="option" id="scissors">✂️</button>
+        </div>
         <h1 id="who-won"></h1>
         <h1 id="score"></h1>
     </div>

@@ -17,38 +17,39 @@ function getComputerChoice(){
     }
 
     return computerChoice;
+    console.log(computerChoice);
 
     
 }
 
-document.addEventListener("DOMContentLoaded", () =>{
-    let option = document.getElementById("option");
+document.addEventListener("DOMContentLoaded", () => {
+    let options = document.querySelectorAll(".option");
 
-    option.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            playRound();
-        }
-    })
-})
+    options.forEach(option => {
+        option.addEventListener("click", (event) => {
+            let humanChoice = getHumanChoice(event.target.id);
+            playRound(humanChoice);
+            return humanChoice;
+        });
+    });
+});
 
-option.addEventListener("enter", playRound);
 
-function getHumanChoice(){
-    let humanChoice = document.getElementById("option").value;
-    let message = document.getElementById('message');
-        
-    humanChoice = humanChoice.trim().toLowerCase();
 
+
+function getHumanChoice(choice){
+    let humanChoice = choice;
     return humanChoice;
-  
-}
+
+    
+};
 
 let humanScore = 0;
 let computerScore = 0;
 let round = 0;
 
-function playRound(){
-    let humanChoice = getHumanChoice();
+function playRound(humanChoice){
+    
     let computerChoice = getComputerChoice();
     let roundNotice = document.getElementById('message');
     let scoreNotice = document.getElementById('score');
@@ -57,15 +58,7 @@ function playRound(){
     console.log(computerChoice);
     console.log(humanChoice);
 
-    if(humanChoice.trim() === ""){
-        message.innerText = "Not a valid option, dude";
-        return null;
-    };
-
-    if ((humanChoice!=="rock") && (humanChoice !=="paper") && (humanChoice !== "scissors")){
-        message.innerText = "Choose Rock, Paper or Scissors!"
-        return null;
-    };
+   
 
     
     if((humanChoice=='rock' && computerChoice=='scissors') || (humanChoice=='scissors' && computerChoice=='paper') || (humanChoice == 'paper' && computerChoice == 'scissors')){
@@ -105,7 +98,10 @@ function playRound(){
                 scoreNotice.innerText = `Score: ${humanScore} - ${computerScore}`
                 whoWhon.innerText = "";
             };
-            document.getElementById('option').addEventListener("keydown", resetClick);
+            let options = document.querySelectorAll(".option");
+            options.forEach(option => {
+                option.addEventListener("click", resetGame, {once: true});
+            })
             
         }
 
@@ -114,12 +110,7 @@ function playRound(){
     
 };
 
-function resetClick(event){
-    if(event.key === "Enter"){
-        resetGame();
-        document.getElementById('option').removeEventListener('keydown', resetClick);
-    }
-};
+
 
 function resetGame(){
     round = 0;
@@ -128,8 +119,12 @@ function resetGame(){
     document.getElementById("gameCondition").innerText = "";
     document.getElementById("message").innerText = "Welcome. Let's Play.";
     document.getElementById("score").innerText = "";
-    document.getElementById("option").value = "";
+    
     document.getElementById("who-won").innerText = ""; 
     
+    let options = document.querySelectorAll(".option");
+    options.forEach(option => {
+        option.removeEventListener("click", resetGame);
+    })
 
 }
