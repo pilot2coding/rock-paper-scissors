@@ -66,7 +66,7 @@ function playRound(humanChoice){
    
 
     
-    if((humanChoice=='rock' && computerChoice=='scissors') || (humanChoice=='scissors' && computerChoice=='paper') || (humanChoice == 'paper' && computerChoice == 'scissors')){
+    if((humanChoice=='rock' && computerChoice=='scissors') || (humanChoice=='scissors' && computerChoice=='paper') || (humanChoice == 'paper' && computerChoice == 'rock')){
             round++;
             humanScore++;
             roundNotice.innerText = `Round ${round}`;
